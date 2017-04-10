@@ -1,0 +1,19 @@
+{
+	"name": "xible-nodepack-stream",
+	"version": "0.0.1",
+	"description": "Set of stream nodes for XIBLE.",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/spectrumbroad/xible-nodepack-stream"
+	},
+	"bugs": {
+		"url": "https://github.com/spectrumbroad/xible-nodepack-stream/issues",
+		"email": "bugs@xible.io"
+	},
+	"keywords": [
+		"xible",
+		"stream",
+    "nodepack"
+	]
+}

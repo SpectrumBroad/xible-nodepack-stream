@@ -1,0 +1,20 @@
+{
+	"name": "stream.readable.onend",
+	"type": "event",
+	"description": "Triggered every time there is no more data to be consumed from any of the given stream(s).",
+	"inputs": {
+		"stream": {
+			"type": "stream.readable",
+			"description": "The stream(s) to monitor."
+		}
+	},
+	"outputs": {
+		"trigger": {
+			"type": "trigger"
+		},
+		"data": {
+			"type": null,
+			"description": "All consumed data by this stream reader."
+		}
+	}
+}

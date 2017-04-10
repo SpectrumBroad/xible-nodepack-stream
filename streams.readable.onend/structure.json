@@ -1,0 +1,16 @@
+{
+	"name": "streams.readable.onend",
+	"type": "event",
+	"description": "Triggered once all of the stream(s) have no more data available.",
+	"inputs": {
+		"stream": {
+			"type": "stream.readable",
+			"description": "The stream(s) to monitor."
+		}
+	},
+	"outputs": {
+		"trigger": {
+			"type": "trigger"
+		}
+	}
+}

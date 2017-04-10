@@ -1,0 +1,20 @@
+{
+	"name": "stream.readable.ondata",
+	"type": "event",
+	"description": "Triggered whenever new data is available on the given stream(s).",
+	"inputs": {
+		"stream": {
+			"type": "stream.readable",
+			"description": "The stream to monitor."
+		}
+	},
+	"outputs": {
+		"trigger": {
+			"type": "trigger"
+		},
+		"data": {
+			"type": null,
+			"description": "Available chunk of data."
+		}
+	}
+}
