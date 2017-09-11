@@ -1,0 +1,6 @@
+{
+  "stream.readable": {
+    "color": "deepskyblue",
+    "extends": "object"
+  }
+}
