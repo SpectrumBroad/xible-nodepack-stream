@@ -9,7 +9,7 @@ module.exports = (NODE) => {
     callback((thisState && thisState.data) || null);
   });
 
-  const readableIn = NODE.getInputByName('stream');
+  const readableIn = NODE.getInputByName('streams');
 
   NODE.on('trigger', (state) => {
     readableIn.getValues(state)

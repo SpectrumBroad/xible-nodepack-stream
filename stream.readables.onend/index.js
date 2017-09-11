@@ -2,7 +2,7 @@
 
 module.exports = (NODE) => {
   const triggerOut = NODE.getOutputByName('trigger');
-  const readableIn = NODE.getInputByName('stream');
+  const readableIn = NODE.getInputByName('streams');
 
   NODE.on('trigger', (state) => {
     readableIn.getValues(state).then((readables) => {

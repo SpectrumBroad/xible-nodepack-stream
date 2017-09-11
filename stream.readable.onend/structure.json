@@ -3,7 +3,7 @@
 	"type": "event",
 	"description": "Triggered every time there is no more data to be consumed from any of the given stream(s).",
 	"inputs": {
-		"stream": {
+		"streams": {
 			"type": "stream.readable",
 			"description": "The stream(s) to monitor."
 		}

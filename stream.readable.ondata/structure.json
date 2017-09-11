@@ -3,9 +3,9 @@
 	"type": "event",
 	"description": "Triggered whenever new data is available on the given stream(s).",
 	"inputs": {
-		"stream": {
+		"streams": {
 			"type": "stream.readable",
-			"description": "The stream to monitor."
+			"description": "The stream(s) to monitor."
 		}
 	},
 	"outputs": {
