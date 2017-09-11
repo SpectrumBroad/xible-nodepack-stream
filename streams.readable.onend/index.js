@@ -1,31 +1,22 @@
-module.exports = function(NODE) {
+'use strict';
 
-	let triggerOut = NODE.getOutputByName('trigger');
-	let readableIn = NODE.getInputByName('stream');
+module.exports = (NODE) => {
+  const triggerOut = NODE.getOutputByName('trigger');
+  const readableIn = NODE.getInputByName('stream');
 
-	NODE.on('trigger', (state) => {
+  NODE.on('trigger', (state) => {
+    readableIn.getValues(state).then((readables) => {
+      const readableLength = readables.length;
+      let endCount = 0;
+      for (let i = 0; i < readableLength; i += 1) {
+        readables[i].on('end', () => {  // eslint-disable-line
+          if (++endCount !== readableLength) {
+            return;
+          }
 
-		readableIn.getValues(state).then((readables) => {
-
-			const readableLength = readables.length;
-			let endCount = 0;
-			for (let i = 0; i < readableLength; ++i) {
-
-				readables[i].on('end', () => {
-
-					if (++endCount !== readableLength) {
-						return;
-					}
-
-					triggerOut.trigger(state);
-
-				});
-
-			}
-
-		});
-
-	});
-
-
+          triggerOut.trigger(state);
+        });
+      }
+    });
+  });
 };

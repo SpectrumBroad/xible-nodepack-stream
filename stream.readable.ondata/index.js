@@ -1,35 +1,27 @@
-module.exports = function(NODE) {
+'use strict';
 
-	let triggerOut = NODE.getOutputByName('trigger');
-	let dataOut = NODE.getOutputByName('data');
+module.exports = (NODE) => {
+  const triggerOut = NODE.getOutputByName('trigger');
+  const dataOut = NODE.getOutputByName('data');
 
-	dataOut.on('trigger', (conn, state, callback) => {
+  dataOut.on('trigger', (conn, state, callback) => {
+    const thisState = state.get(NODE);
+    callback((thisState && thisState.data) || null);
+  });
 
-		let thisState = state.get(this);
-		callback((thisState && thisState.data) || null);
+  const readableIn = NODE.getInputByName('stream');
 
-	});
-
-	let readableIn = NODE.getInputByName('stream');
-
-	NODE.on('trigger', (state) => {
-
-		readableIn.getValues(state).then((readables) => {
-
-			for (let i = 0; i < readables.length; ++i) {
-
-				readables[i].on('data', (data) => {
-					state.set(this, {
-						data: data
-					});
-					triggerOut.trigger(state);
-				});
-
-			}
-
-		});
-
-	});
-
-
+  NODE.on('trigger', (state) => {
+    readableIn.getValues(state)
+    .then((readables) => {
+      for (let i = 0; i < readables.length; i += 1) {
+        readables[i].on('data', (data) => {
+          state.set(NODE, {
+            data
+          });
+          triggerOut.trigger(state);
+        });
+      }
+    });
+  });
 };
