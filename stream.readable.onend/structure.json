@@ -13,7 +13,7 @@
 			"type": "trigger"
 		},
 		"data": {
-			"type": null,
+			"type": "string",
 			"description": "All consumed data by this stream reader."
 		}
 	}
