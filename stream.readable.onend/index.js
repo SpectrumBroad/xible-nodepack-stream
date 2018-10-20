@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = (NODE) => {
+  const triggerIn = NODE.getInputByName('trigger');
+  const readableIn = NODE.getInputByName('streams');
+
   const triggerOut = NODE.getOutputByName('trigger');
   const dataOut = NODE.getOutputByName('data');
 
@@ -13,9 +16,7 @@ module.exports = (NODE) => {
     return thisState.data;
   });
 
-  const readableIn = NODE.getInputByName('streams');
-
-  NODE.on('trigger', async (state) => {
+  triggerIn.on('trigger', async (conn, state) => {
     const trackData = dataOut.isConnected();
     const readables = await readableIn.getValues(state);
     readables.forEach((readable) => {

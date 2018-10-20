@@ -1,20 +1,23 @@
 {
-	"name": "stream.readable.ondata",
-	"type": "event",
-	"description": "Triggered whenever new data is available on the given stream(s).",
-	"inputs": {
-		"streams": {
-			"type": "stream.readable",
-			"description": "The stream(s) to monitor."
-		}
-	},
-	"outputs": {
-		"trigger": {
-			"type": "trigger"
-		},
-		"data": {
-			"type": "string",
-			"description": "Available chunk of data."
-		}
-	}
+  "name": "stream.readable.ondata",
+  "type": "event",
+  "description": "Triggered whenever new data is available on the given stream(s).",
+  "inputs": {
+    "trigger": {
+      "type": "trigger"
+    },
+    "streams": {
+      "type": "stream.readable",
+      "description": "The stream(s) to monitor."
+    }
+  },
+  "outputs": {
+    "trigger": {
+      "type": "trigger"
+    },
+    "data": {
+      "type": "string",
+      "description": "Available chunk of data."
+    }
+  }
 }

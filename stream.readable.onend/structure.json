@@ -1,20 +1,23 @@
 {
-	"name": "stream.readable.onend",
-	"type": "event",
-	"description": "Triggered every time there is no more data to be consumed from any of the given stream(s).",
-	"inputs": {
-		"streams": {
-			"type": "stream.readable",
-			"description": "The stream(s) to monitor."
-		}
-	},
-	"outputs": {
-		"trigger": {
-			"type": "trigger"
-		},
-		"data": {
-			"type": "string",
-			"description": "All consumed data by this stream reader."
-		}
-	}
+  "name": "stream.readable.onend",
+  "type": "event",
+  "description": "Triggered every time there is no more data to be consumed from any of the given stream(s).",
+  "inputs": {
+    "trigger": {
+      "type": "trigger"
+    },
+    "streams": {
+      "type": "stream.readable",
+      "description": "The stream(s) to monitor."
+    }
+  },
+  "outputs": {
+    "trigger": {
+      "type": "trigger"
+    },
+    "data": {
+      "type": "string",
+      "description": "All consumed data by this stream reader."
+    }
+  }
 }
